@@ -7,7 +7,10 @@ function pigIt(str){
     concat first letter with new word and 'ay'
      */
     return str.split(' ')
-    .map((word) => `${word.slice(1)}${word[0]}ay`)
+    .map((word) => {
+        return word.match(/[|\\/~^:,;?!&%$@*+]/) ? 
+        word :`${word.slice(1)}${word[0]}ay`
+    })
     .join(' ');
 }
 
