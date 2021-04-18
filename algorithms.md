@@ -22,3 +22,9 @@ There must be a function for each of the following mathematical operations: plus
 Each calculation consist of exactly one operation and two numbers
 The most outer function represents the left operand, the most inner function represents the right operand
 Division should be integer division. For example, this should return 2, not 2.666666...:
+
+## 3 create phone number 
+Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+
+Example:
+createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
