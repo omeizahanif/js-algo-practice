@@ -86,6 +86,17 @@ function createPhoneNumber(numbers){
     return `(${a}${b}${c}) ${d}${e}${f}-${g}${h}${i}${j}`;
 }
 
+//Number of trailing zeros of N!
 
-console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
-console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]));
+function zeros (n) {
+    let counter = 0;
+    if (n < 5) {
+       return 0;    
+    }
+    for (let i = 5; i <= n; i+= 5) {
+        counter += 1;
+    }
+    return counter;
+}
+
+console.log(zeros(25));
