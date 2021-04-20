@@ -105,23 +105,33 @@ function zeros (n) {
     return counter;
 }
 
-console.log(zeros(9));
+//console.log(zeros(9));
 
-const romanNumerals = {
-    1 : 'I', 5: 'V', 10: 'X', 50: 'L', 
-    100: 'C', 500: 'D', 1000: 'M'
-}
+
 
 //console.log(Object.keys(romanNumerals));
 
-/*function convertToRoman(num) {
-    let romanConv = '';
-    let romanKeysArr = Object.keys(romanNumerals);
-    for (let i = 0; i < romanKeysArr.length; i++) {
-        if (num < romanKeysArr[i]) {
-
-            romanConv += romanKeysArr[i - 1];
-            break;
+function convertToRoman(num) {
+    const romanNumerals = {
+        M: 1000, CM: 900, D: 500, CD: 400, C: 100, 
+        XC: 90, L: 50, XL: 40, X: 10, IX: 9, V: 5, 
+        IV: 4, I: 1,
+    }
+    let index = 0;
+    let romanString = '';
+    const romanValuesArr = Object.values(romanNumerals)
+    const romanKeysArr = Object.keys(romanNumerals);
+    for (let i of romanValuesArr) {
+        while(num >= i) {
+            //add the roman equiv of i into roman string
+            index = romanValuesArr.indexOf(i);
+            romanString += romanKeysArr[index];
+            num -= i;
         }
     }
-}*/
+
+    return romanString;
+}
+
+
+//console.log(convertToRoman(3999));
