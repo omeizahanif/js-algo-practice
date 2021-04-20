@@ -49,3 +49,4 @@ All roman numerals answers should be provided in upper-case.
 Example: 
 
 convertToRoman(2) should return the string 'II'
+convertToRoman(3999) should return the string 'MMMCMXCIX'
