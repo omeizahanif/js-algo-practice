@@ -90,13 +90,38 @@ function createPhoneNumber(numbers){
 
 function zeros (n) {
     let counter = 0;
-    if (n < 5) {
-       return 0;    
+    /*
+    num of trailing zeros in nonnegative integer
+    n ! is the product of power of prime factor
+    5 in n!. i.e. f(n) => {
+        let sum += Math.floor((n / Math.pow(5,i)))
+        while Math.pow(5,i) <= n
+        i+= 1;
     }
-    for (let i = 5; i <= n; i+= 5) {
-        counter += 1;
+    */
+    for (let i = 1; Math.pow(5,i) <= n; i++) {
+        counter += Math.floor((n / Math.pow(5,i)));
     }
     return counter;
 }
 
-console.log(zeros(25));
+console.log(zeros(9));
+
+const romanNumerals = {
+    1 : 'I', 5: 'V', 10: 'X', 50: 'L', 
+    100: 'C', 500: 'D', 1000: 'M'
+}
+
+//console.log(Object.keys(romanNumerals));
+
+/*function convertToRoman(num) {
+    let romanConv = '';
+    let romanKeysArr = Object.keys(romanNumerals);
+    for (let i = 0; i < romanKeysArr.length; i++) {
+        if (num < romanKeysArr[i]) {
+
+            romanConv += romanKeysArr[i - 1];
+            break;
+        }
+    }
+}*/

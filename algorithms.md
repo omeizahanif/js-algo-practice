@@ -41,3 +41,11 @@ zeros(6) = 1
 
 zeros(12) = 2
 # 12! = 479001600 --> 2 trailing zeros
+
+## 5 Roman Numeral Converter
+
+Convert the given number into a roman numeral.
+All roman numerals answers should be provided in upper-case.
+Example: 
+
+convertToRoman(2) should return the string 'II'
