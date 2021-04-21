@@ -50,3 +50,10 @@ Example:
 
 convertToRoman(2) should return the string 'II'
 convertToRoman(3999) should return the string 'MMMCMXCIX'
+
+## 6 Caesars Cipher
+
+Write a function which takes a ROT13 encoded string as input and returns a decoded string.
+
+All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
+Example: rot13("SERR PBQR PNZC") should decode to the string FREE CODE CAMP
