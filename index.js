@@ -151,5 +151,33 @@ function rot13(str) {
     return decodedCipher;
 }
   
-  console.log(rot13("SERR PBQR PNZC"));
-  console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
+  //console.log(rot13("SERR PBQR PNZC"));
+
+  function high(x) {
+    const alphabets = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
+    'n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+    const wordArr = x.split(' ');
+    let wordClone = [];
+    let sumOfLetters = 0;
+    let index = 0;
+    let highest = 0;
+    wordArr.forEach((word) => {
+        for(let letter of word) {
+            if (alphabets.includes(letter)){
+                index = alphabets.indexOf(letter) + 1;
+                sumOfLetters += index;
+            }
+        }
+        wordClone.push(sumOfLetters);
+        sumOfLetters = 0;
+    });
+
+    for(let sumOfLetters of wordClone) {
+        highest = sumOfLetters > highest ? sumOfLetters : highest;
+    }
+    return wordArr[wordClone.indexOf(highest)];
+  }
+
+  console.log(high('man i need a taxi up to ubud'));
+  console.log(high('what time are we climbing up the volcano'));
