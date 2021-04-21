@@ -57,3 +57,16 @@ Write a function which takes a ROT13 encoded string as input and returns a decod
 
 All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
 Example: rot13("SERR PBQR PNZC") should decode to the string FREE CODE CAMP
+
+## 7 Highest Scoring Word
+
+Given a string of words, you need to find the highest scoring word.
+
+Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+
+You need to return the highest scoring word as a string.
+
+If two words score the same, return the word that appears earliest in the original string.
+
+All letters will be lowercase and all inputs will be valid.
+Example: high('what time are we climbing up the volcano') should return volcano
