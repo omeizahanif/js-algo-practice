@@ -133,5 +133,23 @@ function convertToRoman(num) {
     return romanString;
 }
 
+function rot13(str) {
+    let decodedCipher = '';
+    const alphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
+                        'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    decodedCipher = str.split('')
+                       .map((letter) => {
+                           let index = 0;
+                           if(alphabets.includes(letter)) {
+                                index = alphabets.indexOf(letter);
+                                index >= 13 ? index -= 13 : index += 13;
+                                return alphabets[index];
+                           }
+                           return letter;
+                       }).join('');
 
-console.log(convertToRoman(3999));
+    return decodedCipher;
+}
+  
+  console.log(rot13("SERR PBQR PNZC"));
+  console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
