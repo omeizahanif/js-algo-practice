@@ -160,23 +160,15 @@ function rot13(str) {
     const wordArr = x.split(' ');
     let wordClone = [];
     let sumOfLetters = 0;
-    let index = 0;
-    let highest = 0;
     wordArr.forEach((word) => {
         for(let letter of word) {
-            if (alphabets.includes(letter)){
-                index = alphabets.indexOf(letter) + 1;
-                sumOfLetters += index;
-            }
+                sumOfLetters += alphabets.indexOf(letter);
         }
         wordClone.push(sumOfLetters);
         sumOfLetters = 0;
     });
 
-    for(let sumOfLetters of wordClone) {
-        highest = sumOfLetters > highest ? sumOfLetters : highest;
-    }
-    return wordArr[wordClone.indexOf(highest)];
+    return wordArr[wordClone.indexOf(Math.max(...wordClone))];
   }
 
   console.log(high('man i need a taxi up to ubud'));
