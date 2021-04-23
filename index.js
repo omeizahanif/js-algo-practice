@@ -237,3 +237,32 @@ PaginationHelper.prototype.pageIndex = function(itemIndex) {
 
 //let helper = new PaginationHelper([21, 22, 23, 24], 10);
 
+function solution(list){
+    let mainStr = '', holdingStr = '', n = 0,
+    mainArr = [], counter = 1, startingNum = 0;
+    for(let i = 0; i < list.length; i++) {
+        startingNum = list[n];
+        console.log(`num: `, startingNum);
+        if(startingNum == (list[i+counter] - (i+counter))) {
+            holdingStr += list[i+counter];
+           // console.log(`hold: `, holdingStr);
+        } else {
+            if (holdingStr.length >= 3) {
+                //holdingStr = startingNum + holdingStr;
+                mainArr.push(list.splice(startingNum, holdingStr.length+1));
+                n = i + 1;
+                console.log(n);
+            } else {
+                mainStr += `${startingNum},`;
+                holdingStr = '';
+                n += 1;
+            }
+        }
+
+        
+    }
+    return { mainStr, mainArr };
+}
+
+//console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
+console.log(solution([0,1,2,3,4,6,7,8,2]));
