@@ -238,31 +238,39 @@ PaginationHelper.prototype.pageIndex = function(itemIndex) {
 //let helper = new PaginationHelper([21, 22, 23, 24], 10);
 
 function solution(list){
-    let mainStr = '', holdingStr = '', n = 0,
-    mainArr = [], counter = 1, startingNum = 0;
-    for(let i = 0; i < list.length; i++) {
-        startingNum = list[n];
-        console.log(`num: `, startingNum);
-        if(startingNum == (list[i+counter] - (i+counter))) {
-            holdingStr += list[i+counter];
-           // console.log(`hold: `, holdingStr);
+    let clone = [...list], rangeArr = [],
+    mainStr = '', i = 0, fixedLength = clone.length;
+    while (i < fixedLength) {
+        //evaluate diff btw 2nd and 1st value
+        if((clone[1] - clone[0]) === 1) {
+            //shift 1st value into an rangeArr
+            rangeArr.push(clone.shift());
         } else {
-            if (holdingStr.length >= 3) {
-                //holdingStr = startingNum + holdingStr;
-                mainArr.push(list.splice(startingNum, holdingStr.length+1));
-                n = i + 1;
-                console.log(n);
-            } else {
-                mainStr += `${startingNum},`;
-                holdingStr = '';
-                n += 1;
-            }
-        }
-
-        
+            rangeArr.push(clone.shift());
+            //concat the result of calling format on rangeArr
+            mainStr += format(rangeArr);
+            //reset rangeArr to be used in next iteration
+            rangeArr = [];
+        }      
+        i += 1;
     }
-    return { mainStr, mainArr };
+
+    /**
+     * format takes an array, and, based on num of values,
+     * transforms it into a string containing either a 
+     * range of values, or concatenated single unrelated values
+     * @param {an array with arbitrary num of values} arr 
+     * @returns {a string formatted based on num of values}
+     */
+    function format(arr) {
+        if(arr.length >= 3) {
+            return `${arr[0]}-${arr[arr.length - 1]},`
+        } else {
+            return arr.reduce((acc, curr) => `${acc}${curr},`, '');
+        }
+    }
+    //return main str, removing the last delimiter (,)
+    return mainStr.substring(0, mainStr.length-1);
 }
 
-//console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
-console.log(solution([0,1,2,3,4,6,7,8,2]));
+console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
