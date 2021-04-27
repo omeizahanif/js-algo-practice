@@ -109,8 +109,8 @@ function zeros (n) {
 
 
 
-//console.log(Object.keys(romanNumerals));
 
+//Roman Numeral Converter
 function convertToRoman(num) {
     const romanNumerals = {
         M: 1000, CM: 900, D: 500, CD: 400, C: 100, 
@@ -133,6 +133,7 @@ function convertToRoman(num) {
     return romanString;
 }
 
+//Caesar's Cipher
 function rot13(str) {
     let decodedCipher = '';
     const alphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
@@ -153,7 +154,8 @@ function rot13(str) {
   
   //console.log(rot13("SERR PBQR PNZC"));
 
-  function high(x) {
+  //The word with the highest sum of letters
+function high(x) {
     const alphabets = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
     'n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
@@ -237,6 +239,7 @@ PaginationHelper.prototype.pageIndex = function(itemIndex) {
 
 //let helper = new PaginationHelper([21, 22, 23, 24], 10);
 
+//Range Maker
 function solution(list){
     let clone = [...list], rangeArr = [],
     mainStr = '', i = 0, fixedLength = clone.length;
@@ -273,4 +276,39 @@ function solution(list){
     return mainStr.substring(0, mainStr.length-1);
 }
 
-console.log(solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
+//Max num of cakes based on amount of recipe
+/*function cakes(recipe, available) {
+    let cakeQuantity = 0, 
+    availValues = Object.values(available),
+    availKeys = Object.keys(available),
+    recipeKeys = Object.keys(recipe),
+    recipeValues = Object.values(recipe);
+    cakeQuantity = recipeKeys.reduce((minAmount, ingredient) => {
+            let availQuantity = availValues[availKeys.indexOf(ingredient)];
+            let recipeQuantity = recipeValues[recipeKeys.indexOf(ingredient)];
+            if (availKeys.includes(ingredient)) {
+                minAmount.push(Math.floor(availQuantity/recipeQuantity));
+            } else {
+                return 0;
+            }
+            return minAmount;
+    }, []);
+
+    return Math.min(...cakeQuantity);
+}*/
+
+function cakes(recipe, available) {
+    let minQuantity = [],
+    recipeKeys = Object.keys(recipe);
+
+    minQuantity = recipeKeys.map((ingredient) => { 
+                return Math.floor(available[ingredient] / recipe[ingredient] || 0);
+    });
+    
+    return Math.min(...minQuantity);
+}
+
+
+console.log(cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000}));
+
+console.log(cakes({"sugar":0,"pears":31,"cream":94}, {"pears":6600,"apples":1000,"milk":9700,"cocoa":1400,"eggs":4500,"flour":1400,"chocolate":900,"oil":7200,"crumbles":6200,"sugar":2400,"butter":3800,"nuts":4200,"cream":7200} ))
