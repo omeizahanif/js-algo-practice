@@ -277,25 +277,6 @@ function solution(list){
 }
 
 //Max num of cakes based on amount of recipe
-/*function cakes(recipe, available) {
-    let cakeQuantity = 0, 
-    availValues = Object.values(available),
-    availKeys = Object.keys(available),
-    recipeKeys = Object.keys(recipe),
-    recipeValues = Object.values(recipe);
-    cakeQuantity = recipeKeys.reduce((minAmount, ingredient) => {
-            let availQuantity = availValues[availKeys.indexOf(ingredient)];
-            let recipeQuantity = recipeValues[recipeKeys.indexOf(ingredient)];
-            if (availKeys.includes(ingredient)) {
-                minAmount.push(Math.floor(availQuantity/recipeQuantity));
-            } else {
-                return 0;
-            }
-            return minAmount;
-    }, []);
-
-    return Math.min(...cakeQuantity);
-}*/
 
 function cakes(recipe, available) {
     let minQuantity = [],
@@ -308,7 +289,28 @@ function cakes(recipe, available) {
     return Math.min(...minQuantity);
 }
 
+// Valid parentheses
 
-console.log(cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000}));
+function validParentheses(parens){
+   /* let leftParens = '', rightParens = '';
+    if (parens.length % 2 == 0) {
+        
+        if (parens.include('()')) {
 
-console.log(cakes({"sugar":0,"pears":31,"cream":94}, {"pears":6600,"apples":1000,"milk":9700,"cocoa":1400,"eggs":4500,"flour":1400,"chocolate":900,"oil":7200,"crumbles":6200,"sugar":2400,"butter":3800,"nuts":4200,"cream":7200} ))
+        }
+    }*/
+    
+    //console.log(parens);
+    parens = parens.replace(' ', '');
+    const regex = /\(\)/;
+    const found = regex.exec(parens);
+    //let arr = parens.split('()');
+    /*for (let paren of parens.split('()')) {
+        paren == '(' ? leftParens += paren : rightParens += paren;
+    }
+    return false;*/
+    return found;
+}
+
+console.log(validParentheses(")(( )))"));
+console.log(validParentheses("(( ))(()()())())"));
