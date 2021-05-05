@@ -9,8 +9,6 @@ def anagram_checker(str1, str2):
        bool: Indicates whether strings are anagrams
     """
     
-    # TODO: Write your solution here
-    
     str1 = str1.lower()
     str2 = str2.lower()
     
@@ -25,3 +23,24 @@ def anagram_checker(str1, str2):
     
     return list1 == list2
 
+def word_flipper(our_string):
+
+    """
+    Flip the individual words in a sentence
+
+    Args:
+       our_string(string): String with words to flip
+    Returns:
+       string: String with words flipped
+    """
+    flip_list = []
+
+    for i in our_string.split():
+        flip_word = [char for char in i]
+        flip_word.reverse()
+        i = ''.join(flip_word)
+        flip_list.append(i)
+
+    return ' '.join(flip_list)
+
+print(word_flipper('retaw'))
