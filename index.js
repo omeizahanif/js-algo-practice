@@ -292,25 +292,21 @@ function cakes(recipe, available) {
 // Valid parentheses
 
 function validParentheses(parens){
-   /* let leftParens = '', rightParens = '';
-    if (parens.length % 2 == 0) {
-        
-        if (parens.include('()')) {
+    const leftParensArr = parens.split('(').sort();
+    const rightParensArr = parens.split(')').sort();
+    console.log(leftParensArr, rightParensArr);
 
+    if (parens.length % 2 !== 0) return false;
+
+    if (parens[0] == ')' || parens[parens.length - 1] == '(') return false;
+
+    for (let i = 0; i < leftParensArr.length; i++) {
+        if (leftParensArr[i].length !== rightParensArr[i].length) {
+            return false;
         }
-    }*/
-    
-    //console.log(parens);
-    parens = parens.replace(' ', '');
-    const regex = /\(\)/;
-    const found = regex.exec(parens);
-    //let arr = parens.split('()');
-    /*for (let paren of parens.split('()')) {
-        paren == '(' ? leftParens += paren : rightParens += paren;
     }
-    return false;*/
-    return found;
+    return true;
+
 }
 
-console.log(validParentheses(")(( )))"));
-console.log(validParentheses("(( ))(()()())())"));
+console.log(validParentheses('(())((()((()))))'));
