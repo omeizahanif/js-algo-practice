@@ -85,3 +85,18 @@ class LinkedList:
             out.append(node.value)
             node = node.next
         return out
+
+# Define a function outside of the class
+def prepend(self, value):
+    """ Prepend a value to the beginning of the list. """
+    # TODO: Write function to prepend here
+    if self.head is None:
+        self.head = Node(value)
+        return
+        
+    node = self.head
+    self.head = Node(value)
+    self.head.next = node
+    
+    return None
+    # pass
