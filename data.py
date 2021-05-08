@@ -114,3 +114,18 @@ def append(self, value):
     node.next = Node(value)
     
     return None
+
+def search(self, value):
+    """ Search the linked list for a node with the requested value and return the node. """
+    # TODO: Write function to search here
+    if self.head.value == value:
+        return self.head
+    
+    node = self.head
+    while node.next:
+        if node.next.value == value:
+            return node.next
+        else:
+            node = node.next
+            
+    return None
