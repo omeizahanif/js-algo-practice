@@ -145,3 +145,11 @@ def remove(self, value):
             node = node.next
     
     return None
+
+def pop(self):
+    """ Return the first node's value and remove it from the list. """
+    # TODO: Write function to pop here
+    node = self.head
+    self.head = self.head.next
+    
+    return node.value
