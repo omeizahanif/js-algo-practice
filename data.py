@@ -65,3 +65,23 @@ def hamming_distance(str1, str2):
     # TODO: Write your solution here
     
 print(hamming_distance('A gentleman','Elegant men'))
+
+
+# --- Data Structures -----
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def to_list(self):
+        out = []
+        node = self.head
+        while node:
+            out.append(node.value)
+            node = node.next
+        return out
