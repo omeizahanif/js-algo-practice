@@ -129,3 +129,19 @@ def search(self, value):
             node = node.next
             
     return None
+
+def remove(self, value):
+    """ Remove first occurrence of value. """
+    # TODO: Write function to remove here
+    if self.head.value == value:
+        self.head = self.head.next 
+    
+    node = self.head
+    while node.next:
+        if node.next.value == value:
+            node.next = node.next.next
+            break
+        else:
+            node = node.next
+    
+    return None
