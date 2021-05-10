@@ -63,8 +63,7 @@ def hamming_distance(str1, str2):
     
     return count
     # TODO: Write your solution here
-    
-print(hamming_distance('A gentleman','Elegant men'))
+
 
 
 # --- Data Structures -----
@@ -153,3 +152,50 @@ def pop(self):
     self.head = self.head.next
     
     return node.value
+
+def insert(self, value, pos):
+    """ Insert value at pos position in the list. If pos is larger than the
+    length of the list, append to the end of the list. """
+    # TODO: Write function to insert here    
+    linked_list = self.to_list()
+    
+    if pos > len(linked_list):
+        self.append(value)
+    else:
+        linked_list.insert(pos, value)
+    
+    self.head = None
+    for item in linked_list:
+        self.append(item)
+    
+    return None
+
+
+def size(self):
+    """ Return the size or length of the linked list. """
+    # TODO: Write function to get size here
+    linked_list = self.to_list()
+    return len(linked_list)
+
+
+
+
+LinkedList.prepend = prepend
+LinkedList.append = append
+LinkedList.search = search
+LinkedList.remove = remove
+LinkedList.pop = pop
+LinkedList.size = size
+LinkedList.insert = insert
+
+linked_list = LinkedList()
+linked_list.prepend(2)
+linked_list.append(1)
+linked_list.append(3)
+linked_list.append(4)
+linked_list.append(3)
+#linked_list.insert(5, 3)
+#linked_list.insert(0, 2)
+
+#print('len: ', linked_list.size())
+print(linked_list.to_list())
