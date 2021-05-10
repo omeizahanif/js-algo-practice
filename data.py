@@ -134,7 +134,8 @@ def remove(self, value):
     # TODO: Write function to remove here
     if self.head.value == value:
         self.head = self.head.next 
-    
+        return
+     
     node = self.head
     while node.next:
         if node.next.value == value:
@@ -160,7 +161,7 @@ def insert(self, value, pos):
     linked_list = self.to_list()
     
     if pos > len(linked_list):
-        self.append(value)
+        linked_list.append(value)
     else:
         linked_list.insert(pos, value)
     
@@ -170,9 +171,9 @@ def insert(self, value, pos):
     
     return None
 
-
 def size(self):
     """ Return the size or length of the linked list. """
+
     # TODO: Write function to get size here
     linked_list = self.to_list()
     return len(linked_list)
@@ -190,11 +191,16 @@ LinkedList.insert = insert
 
 linked_list = LinkedList()
 linked_list.prepend(2)
+linked_list.prepend(1)
 linked_list.append(1)
 linked_list.append(3)
 linked_list.append(4)
 linked_list.append(3)
-#linked_list.insert(5, 3)
+linked_list.remove(1)
+linked_list.remove(3)
+linked_list.remove(3)
+linked_list.pop()
+linked_list.insert(3, 6)
 #linked_list.insert(0, 2)
 
 #print('len: ', linked_list.size())
