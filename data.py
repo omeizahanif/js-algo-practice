@@ -201,7 +201,26 @@ def reverse(linked_list):
         
     return reversed_list
 
+def iscircular(linked_list):
+    """
+    Determine whether the Linked List is circular or not
 
+    Args:
+       linked_list(obj): Linked List to be checked
+    Returns:
+       bool: Return True if the linked list is circular, return False otherwise
+    """
+    node = linked_list.head
+    if node is None:
+        return False
+    
+    while node.next:
+        node = node.next
+        if node.next == linked_list.head.next:
+            return True
+    
+    # TODO: Write function to check if linked list is circular
+    return False
 
 
 LinkedList.prepend = prepend
