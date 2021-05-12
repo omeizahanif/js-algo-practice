@@ -179,6 +179,29 @@ def size(self):
     return len(linked_list)
 
 
+def reverse(linked_list):
+    """
+    Reverse the inputted linked list
+
+    Args:
+       linked_list(obj): Linked List to be reversed
+    Returns:
+       obj: Reveresed Linked List
+    """
+    # TODO: Write your function to reverse linked lists here
+    reversed_list = LinkedList()
+    prev_node = None
+    
+    for item in linked_list:
+        node = Node(item)
+        node.next = prev_node
+        prev_node = node
+    
+    reversed_list.head = node
+        
+    return reversed_list
+
+
 
 
 LinkedList.prepend = prepend
