@@ -6,10 +6,20 @@ class Stack:
         self.num_elements = 0
         
     # TODO Add the push method
-    def push(self, value):
-        self.arr[self.next_index] = value
+    def push(self, data):
+        # TODO: Add a conditional to check for full capacity
+        if (self.next_index == len(self.arr)):
+            self._handle_stack_capacity_full()
+        self.arr[self.next_index] = data
         self.next_index += 1
         self.num_elements += 1
+        
+    # TODO: Add the _handle_stack_capacity_full method
+    def _handle_stack_capacity_full(self):
+        old_arr = self.arr
+        self.arr = [0 for _ in range(len(old_arr)*2)]
+        for i in range(len(old_arr)):
+            self.arr[i] = old_arr[i]
 
 foo = Stack()
 foo.push("Test!")
