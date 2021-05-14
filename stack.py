@@ -30,12 +30,17 @@ class Stack:
     # return self.num_elements
 
     def is_empty(self):
-        for element in self.arr:
-            if element:
-                return False
-                break
-        return True
-    # return self.num_elements == 0
+        return self.num_elements == 0
+
+    def pop(self):
+        if self.num_elements == 0:
+            return None
+        popped = self.arr[0]
+        self.arr = self.arr[1:]
+        self.next_index -= 1
+        self.num_elements -= 1
+        return popped
+        
 foo = Stack()
 foo.push("Test!")
 foo.push("Yes!")
