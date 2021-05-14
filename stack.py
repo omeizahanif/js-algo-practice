@@ -21,6 +21,21 @@ class Stack:
         for i in range(len(old_arr)):
             self.arr[i] = old_arr[i]
 
+    def size(self):
+        counter = 0
+        for element in self.arr:
+            if element:
+                counter += 1
+        return counter
+    # return self.num_elements
+
+    def is_empty(self):
+        for element in self.arr:
+            if element:
+                return False
+                break
+        return True
+    # return self.num_elements == 0
 foo = Stack()
 foo.push("Test!")
 foo.push("Yes!")
