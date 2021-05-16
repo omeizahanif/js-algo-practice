@@ -65,8 +65,14 @@ class Stack:
             self.head = new_node
 
         self.num_elements += 1
+    # TODO: Add the size method
+    def size(self):
+        return self.num_elements
+    # TODO: Add the is_empty method
+    def is_empty(self):
+        return self.num_elements == 0
 
 foo = Stack()
 foo.push("Test!")
 foo.push("Yes!")
-# print(foo.arr)
+print(foo.head.value)
