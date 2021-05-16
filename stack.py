@@ -85,7 +85,7 @@ class Stack:
 foo = Stack()
 foo.push("Test!")
 foo.push("Yes!")
-print(foo.head.value)
+# print(foo.head.value)
 
 # Implementing Stacks as Python list
 class PyStack:
@@ -103,3 +103,25 @@ class PyStack:
             return None
         else:
             return self.items.pop()
+
+def equation_checker(equation):
+    """
+    Check equation for balanced parentheses
+
+    Args:
+       equation(string): String form of equation
+    Returns:
+       bool: Return if parentheses are balanced or not
+    """
+     
+    # TODO: Intiate stack object
+    stack = PyStack()
+    # TODO: Interate through equation checking parentheses
+    for i in equation:
+        if i == '(' or i == ')':
+            stack.push(i)
+    # TODO: Return True if balanced and False if not
+    return stack.size() % 2 == 0
+
+print(equation_checker('((3^2 + 8)*(5/2))/(2+6))'))
+
