@@ -43,7 +43,7 @@ class Stack:
         return popped
 """
 
-# Add the Node class here
+# Implement stack using linked list
 class Node:
     def __init__(self, value):
         self.value = value
@@ -65,6 +65,16 @@ class Stack:
             self.head = new_node
 
         self.num_elements += 1
+
+    # TODO: Add the pop method
+    def pop(self):
+        if self.is_empty():
+            return None
+        popped = self.head.value
+        self.head = self.head.next
+        self.num_elements -= 1
+        return popped
+
     # TODO: Add the size method
     def size(self):
         return self.num_elements
@@ -76,3 +86,20 @@ foo = Stack()
 foo.push("Test!")
 foo.push("Yes!")
 print(foo.head.value)
+
+# Implementing Stacks as Python list
+class PyStack:
+    def __init__(self):
+        self.items = []
+    
+    def size(self):
+        return len(self.items)
+    
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if self.size()==0:
+            return None
+        else:
+            return self.items.pop()
