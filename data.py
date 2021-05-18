@@ -64,7 +64,20 @@ def hamming_distance(str1, str2):
     return count
     # TODO: Write your solution here
 
-
+def smallest_positive(in_list):
+    # TODO: Define a control structure that finds the smallest positive
+    # number in in_list and returns the correct smallest number.
+    
+    positive_list = [i for i in in_list if i > 0]
+    
+    if len(positive_list) == 0:
+        return None
+    
+    for i in range(len(positive_list)):
+        if positive_list[0] > positive_list[i]:
+            positive_list[0] = positive_list[i]
+            
+    return positive_list[0] or None
 
 # --- Data Structures -----
 
@@ -230,20 +243,3 @@ LinkedList.remove = remove
 LinkedList.pop = pop
 LinkedList.size = size
 LinkedList.insert = insert
-
-linked_list = LinkedList()
-linked_list.prepend(2)
-linked_list.prepend(1)
-linked_list.append(1)
-linked_list.append(3)
-linked_list.append(4)
-linked_list.append(3)
-linked_list.remove(1)
-linked_list.remove(3)
-linked_list.remove(3)
-linked_list.pop()
-linked_list.insert(3, 6)
-#linked_list.insert(0, 2)
-
-#print('len: ', linked_list.size())
-print(linked_list.to_list())
