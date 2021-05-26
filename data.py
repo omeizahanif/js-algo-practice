@@ -79,6 +79,19 @@ def smallest_positive(in_list):
             
     return positive_list[0] or None
 
+
+def daysBetweenDates(year1, month1, day1, year2, month2, day2):
+    """Returns the number of days between year1/month1/day1
+       and year2/month2/day2. Assumes inputs are valid dates
+       in Gregorian calendar, and the first date is not after
+       the second."""
+    days = 0
+    while compareYear(year1, month1, day1, year2, month2, day2):
+        year1, month1, day1 = nextDay(year1, month1, day1)
+        days += 1
+
+    return days
+
 # --- Data Structures -----
 
 class Node:
@@ -243,3 +256,72 @@ LinkedList.remove = remove
 LinkedList.pop = pop
 LinkedList.size = size
 LinkedList.insert = insert
+
+
+correct = [[1,2,3],
+           [2,3,1],
+           [3,1,2]]
+
+incorrect = [[1,2,3,4],
+             [2,3,1,3],
+             [3,1,2,3],
+             [4,4,4,4]]
+
+incorrect2 = [[1,2,3,4],
+             [2,3,1,4],
+             [4,1,2,3],
+             [3,4,1,2]]
+
+incorrect3 = [[1,2,3,4,5],
+              [2,3,1,5,6],
+              [4,5,2,1,3],
+              [3,4,5,2,1],
+              [5,6,4,3,2]]
+
+incorrect4 = [['a','b','c'],
+              ['b','c','a'],
+              ['c','a','b']]
+
+incorrect5 = [ [1, 1.5],
+               [1.5, 1]]
+               
+# Define a function check_sudoku() here:
+def check_sudoku(squares):
+    el_dict = {}
+    def num_gen(item):
+        i = 0
+        while i < range(len(item)):
+            yield i
+            i += 1
+    
+    for square in squares:
+        i = next(num_gen())
+        el = square[i]
+        
+
+            
+
+
+
+
+    
+    
+print(check_sudoku(incorrect))
+#>>> False
+
+#print(check_sudoku(correct))
+#>>> True
+
+#print(check_sudoku(incorrect2))
+#>>> False
+
+#print(check_sudoku(incorrect3))
+#>>> False
+
+#print(check_sudoku(incorrect4))
+#>>> False
+
+#print(check_sudoku(incorrect5))
+#>>> False
+
+
