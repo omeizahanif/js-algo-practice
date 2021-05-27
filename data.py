@@ -79,6 +79,19 @@ def smallest_positive(in_list):
             
     return positive_list[0] or None
 
+def nextDay(year, month, day):
+    if month == 12:
+        if day == 30:
+            return year + 1, 1, 1
+        else:
+            return year, month, day + 1
+    else:
+        if day == 30:
+            return year, month + 1, 1
+        else:
+            return year, month, day + 1
+
+
 def compareYear(year1, month1, day1, year2, month2, day2):
     if year1 < year2:
         return True
@@ -94,7 +107,7 @@ def compareMonth(month1, day1, month2, day2):
             return True
         else:
             return False
-            
+
 def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     """Returns the number of days between year1/month1/day1
        and year2/month2/day2. Assumes inputs are valid dates
@@ -106,6 +119,9 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
         days += 1
 
     return days
+
+
+print(nextDay(2013, 1, 30))
 
 # --- Data Structures -----
 
@@ -301,6 +317,7 @@ incorrect5 = [ [1, 1.5],
                [1.5, 1]]
                
 # Define a function check_sudoku() here:
+"""
 def check_sudoku(squares):
     el_dict = {}
     def num_gen(item):
@@ -312,7 +329,7 @@ def check_sudoku(squares):
     for square in squares:
         i = next(num_gen())
         el = square[i]
-        
+"""        
 
             
 
@@ -321,7 +338,7 @@ def check_sudoku(squares):
 
     
     
-print(check_sudoku(incorrect))
+#print(check_sudoku(incorrect))
 #>>> False
 
 #print(check_sudoku(correct))
