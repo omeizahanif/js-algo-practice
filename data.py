@@ -81,25 +81,28 @@ def smallest_positive(in_list):
 
 def nextDay(year, month, day):
     if month == 12:
-        if day == 30:
+        if day < daysInMonth(year, month):
+            return year, month, day + 1
+            
+        else:
             return year + 1, 1, 1
-        else:
-            return year, month, day + 1
     else:
-        if day == 30:
-            return year, month + 1, 1
-        else:
+        if day < daysInMonth(year, month):
             return year, month, day + 1
+            
+        else:
+            return year, month + 1, 1
 
 
 def compareDate(year1, month1, day1, year2, month2, day2):
-    if year1 <= year2:
+    if year1 < year2:
         return True
     else:
-        if month1 <= month2:
+        if month1 < month2:
             return True
         else:
-            return day1 <= day2
+            return day1 < day2
+    
 
 def isLeapYear(year):
         if year % 4 == 0:
@@ -109,6 +112,18 @@ def isLeapYear(year):
                 return True
             else:
                 return False
+
+def daysInMonth(year, month):
+    months = [1, 3, 5, 7, 8, 10, 12]
+    if month == 2:
+        if isLeapYear(year):
+            return 29
+        else:
+            return 28
+    elif month in months:
+        return 31 
+    return 30
+
 def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     """Returns the number of days between year1/month1/day1
        and year2/month2/day2. Assumes inputs are valid dates
@@ -122,7 +137,9 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     return days
 
 
-print(isLeapYear(2064))
+
+
+
 
 # --- Data Structures -----
 
