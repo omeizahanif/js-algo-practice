@@ -92,21 +92,16 @@ def nextDay(year, month, day):
             return year, month, day + 1
 
 
-def compareYear(year1, month1, day1, year2, month2, day2):
-    if year1 < year2:
+def compareDate(year1, month1, day1, year2, month2, day2):
+    if year1 <= year2:
         return True
     else:
-        compareMonth(month1, day1, month2, day2)
-    return False
-
-def compareMonth(month1, day1, month2, day2):
-    if month1 < month2:
-        return True
-    else:
-        if day1 < day2:
+        if month1 <= month2:
             return True
         else:
-            return False
+            return day1 <= day2
+
+
 
 def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     """Returns the number of days between year1/month1/day1
@@ -114,14 +109,14 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
        in Gregorian calendar, and the first date is not after
        the second."""
     days = 0
-    while compareYear(year1, month1, day1, year2, month2, day2):
+    while compareDate(year1, month1, day1, year2, month2, day2):
         year1, month1, day1 = nextDay(year1, month1, day1)
         days += 1
 
     return days
 
 
-print(nextDay(2013, 1, 30))
+print(compareDate(2016, 12, 30, 2017, 12, 30))
 
 # --- Data Structures -----
 
