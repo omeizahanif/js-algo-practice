@@ -101,8 +101,14 @@ def compareDate(year1, month1, day1, year2, month2, day2):
         else:
             return day1 <= day2
 
-
-
+def isLeapYear(year):
+        if year % 4 == 0:
+            if year % 100 != 0:
+                return True
+            elif year % 100 == 0 and year % 400 == 0:
+                return True
+            else:
+                return False
 def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     """Returns the number of days between year1/month1/day1
        and year2/month2/day2. Assumes inputs are valid dates
@@ -116,7 +122,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     return days
 
 
-print(compareDate(2016, 12, 30, 2017, 12, 30))
+print(isLeapYear(2064))
 
 # --- Data Structures -----
 
