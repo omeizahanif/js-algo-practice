@@ -137,16 +137,35 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     return days
 
 
-def test():
-    #tests with 30-month days
-    assert daysBetweenDates(2012, 12, 30, 2012, 12, 30) == 0
-    assert daysBetweenDates(2012, 12, 30, 2013, 1, 1) == 2
-    assert daysBetweenDates(1995, 12, 25, 1996, 12, 25) == 366
-    assert nextDay(1995, 12, 25) == (1995, 12, 26)
-    assert nextDay(1995, 12, 31) == (1996, 1, 1)
-    print("All tests passed!")
+def testDaysBetweenDates():
+    
+    # test same day
+    assert(daysBetweenDates(2017, 12, 30,
+                              2017, 12, 30) == 0)
+    # test adjacent days
+    assert(daysBetweenDates(2017, 12, 30, 
+                              2017, 12, 31) == 1)
+    # test new year
+    assert(daysBetweenDates(2017, 12, 30, 
+                              2018, 1,  1)  == 2)
+    # test full year difference
+    assert(daysBetweenDates(2012, 6, 29,
+                              2013, 6, 29)  == 365)
+    
+    print("Congratulations! Your daysBetweenDates")
+    print("function is working correctly!")
+    
+print(testDaysBetweenDates())
 
+#---- Recursion ----- 
 
+def reverse_string(input):
+    last_char = len(input)-1
+    if len(input) == 1:
+        return input[0]
+    return input[last_char] + reverse_string(input[:last_char])
+
+# print(reverse_string('abc'))
 
 # --- Data Structures -----
 
