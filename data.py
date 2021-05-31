@@ -161,9 +161,26 @@ print(testDaysBetweenDates())
 
 def reverse_string(input):
     last_char = len(input)-1
-    if len(input) == 1:
+    if len(input) <= 1:
         return input[0]
     return input[last_char] + reverse_string(input[:last_char])
+
+def is_palindrome(input):
+    """
+    Return True if input is palindrome, False otherwise.
+    
+    Args:
+       input(str): input to be checked if it is palindrome
+    """
+    
+    # TODO: Write your recursive palindrome checker here
+    last_char = len(input)-1
+    
+    if len(input) <= 1:
+        return True
+    else:
+        palindrome = input[0]
+        return (palindrome == input[last_char]) and is_palindrome(input[1:last_char])
 
 # print(reverse_string('abc'))
 
