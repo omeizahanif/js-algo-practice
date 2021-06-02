@@ -181,6 +181,35 @@ def is_palindrome(input):
     else:
         palindrome = input[0]
         return (palindrome == input[last_char]) and is_palindrome(input[1:last_char])
+    
+
+    def add_one(arr, new_arr = [], rem = 0):
+    if len(arr) == 0:
+        return new_arr
+    elif len(arr) == 1:
+        if rem == 1 and arr[0] > 8:
+            new_arr.insert(0, 0)
+            new_arr.insert(0, 1)
+        elif len(new_arr) == 0:
+            new_arr.insert(0, arr[0]+1)
+        else:
+            new_arr.insert(0, arr[0])
+        return new_arr
+    else:
+        last = arr[len(arr) - 1]
+        if last > 8 and (len(new_arr) == 0 or rem == 1):
+            new_arr.insert(0, 0)
+            rem = 1
+        elif last > 8 and len(new_arr) > 0:
+            new_arr.insert(0, last)
+        elif rem == 1 and last < 8:
+            new_arr.insert(0, last+1)
+            rem = 0
+        elif rem == 0 and last < 8 and len(new_arr) == 0:
+            new_arr.insert(0, last+1)
+        else:
+            new_arr.insert(0, last)
+        return add_one(arr[:-1], new_arr, rem)
 
 # print(reverse_string('abc'))
 
