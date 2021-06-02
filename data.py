@@ -183,7 +183,7 @@ def is_palindrome(input):
         return (palindrome == input[last_char]) and is_palindrome(input[1:last_char])
     
 
-    def add_one(arr, new_arr = [], rem = 0):
+def add_one(arr, new_arr = [], rem = 0):
     if len(arr) == 0:
         return new_arr
     elif len(arr) == 1:
