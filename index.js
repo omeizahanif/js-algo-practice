@@ -309,4 +309,19 @@ function validParentheses(parens){
 
 }
 
-console.log(validParentheses('(())((()((()))))'));
+// Anagrams 
+function anagrams(word, words) {
+    let anagramArr = [], sortedItem = '';
+    const sortedWord = word.split('').sort().join('');
+    
+    if (words.length == 0) return words;
+    
+    for (let item of words) {
+        sortedItem = item.split('').sort().join('');
+        if (sortedItem == sortedWord) {
+            anagramArr.push(item)
+        }
+    }
+    
+    return anagramArr
+}
