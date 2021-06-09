@@ -129,3 +129,9 @@ Write a function that takes a string of parentheses, and determines if the order
 Examples: 
 "()"              =>  true
 ")(()))"          =>  false
+
+## 12 Anagrams
+Write a function that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words. You should return an array of all the anagrams or an empty array if there are none. For example:
+
+anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
