@@ -223,7 +223,16 @@ def count_items(arr, count = 0):
         count += 1
         return count_items(sliced, count)
 
-print(count_items([5,4,3,2,4,1,0]))
+
+
+def max_num(arr, max = 0):
+    if len(arr) == 0:
+        return max
+
+    if arr[0] >= max:
+        max = arr[0]
+    return max_num(arr[1:], max)
+print(max_num([1,0,0,2,2,1]))
 
 # --- Data Structures -----
 
