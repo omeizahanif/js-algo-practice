@@ -152,10 +152,6 @@ def testDaysBetweenDates():
     assert(daysBetweenDates(2012, 6, 29,
                               2013, 6, 29)  == 365)
     
-    print("Congratulations! Your daysBetweenDates")
-    print("function is working correctly!")
-    
-print(testDaysBetweenDates())
 
 #---- Recursion ----- 
 
@@ -211,7 +207,14 @@ def add_one(arr, new_arr = [], rem = 0):
             new_arr.insert(0, last)
         return add_one(arr[:-1], new_arr, rem)
 
-# print(reverse_string('abc'))
+def sum(arr):
+    if len(arr) == 0:
+        return 0
+    elif len(arr) == 1:
+        return arr[0]
+    else:
+        return arr[0] + sum(arr[1:])
+    
 
 # --- Data Structures -----
 
