@@ -215,6 +215,15 @@ def sum(arr):
     else:
         return arr[0] + sum(arr[1:])
     
+def count_items(arr, count = 0):
+    if len(arr) == 0:
+        return count
+    else:
+        sliced = arr[1:]
+        count += 1
+        return count_items(sliced, count)
+
+print(count_items([5,4,3,2,4,1,0]))
 
 # --- Data Structures -----
 
