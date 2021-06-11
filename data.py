@@ -232,7 +232,23 @@ def max_num(arr, max = 0):
     if arr[0] >= max:
         max = arr[0]
     return max_num(arr[1:], max)
-print(max_num([1,0,0,2,2,1]))
+
+def binary_search(arr, guess):
+    mid_idx = int(len(arr) / 2)
+    mid = arr[mid_idx - 1]
+    if len(arr) < 2:
+        return "Not found"
+
+    if mid == guess:
+        return "Found"
+    elif mid < guess:
+        arr = arr[mid_idx:]
+        return binary_search(arr, guess)
+    elif mid > guess:
+        arr = arr[:mid_idx]
+        return binary_search(arr, guess)
+
+print(binary_search(['a','b','c','d','e','f','g','h','i','j','k','l','m'], 'j'))
 
 # --- Data Structures -----
 
